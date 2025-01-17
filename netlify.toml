@@ -1,10 +1,12 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    X-Frame-Options = "DENY"
-    Access-Control-Allow-Origin = "https://mail.google.com"
+    X-Frame-Options = "ALLOW"
+    Access-Control-Allow-Origin = "*"
     AMP-Access-Control-Allow-Source-Origin = "amp@gmail.dev"
     Access-Control-Expose-Headers = "AMP-Access-Control-Allow-Source-Origin"
+    Access-Control-Allow-Methods: GET, POST, OPTIONS
+    Access-Control-Allow-Headers: Content-Type
 
     #  Multi-value headers are expressed with multi-line strings
 	cache-control = '''
