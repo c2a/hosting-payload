@@ -12,3 +12,10 @@
 	no-cache,
 	no-store,
 	must-revalidate'''
+
+[[redirects]]
+  from = "/"
+  to = "/test.json"
+  status = 301
+  force = true
+  query = {path = ":path"}
