@@ -3,6 +3,7 @@
   [headers.values]
     X-Frame-Options = "DENY"
     Access-Control-Allow-Origin = "https://mail.google.com"
+    Access-Control-Expose-Headers = "*"
 
     #  Multi-value headers are expressed with multi-line strings
 	cache-control = '''
