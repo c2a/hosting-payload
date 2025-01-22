@@ -6,22 +6,53 @@
     <title>Website A (iframe)</title>
 </head>
 <body>
-    <h1>Website A</h1>
+    <h1>Website A (Iframe)</h1>
 
-    <!-- Button inside iframe to trigger the requestStorageAccess() -->
+    <!-- Button to trigger the request for storage access -->
     <button id="requestStorageButton">Request Storage Access</button>
 
     <script>
-        // Request storage access in response to user interaction
-        document.getElementById('requestStorageButton').addEventListener('click', async function() {
+        // Function to print all stored data for debugging
+        function printStorageData() {
+            // Log localStorage
+            console.log('localStorage:');
+            for (let key in localStorage) {
+                if (localStorage.hasOwnProperty(key)) {
+                    console.log(`${key}: ${localStorage.getItem(key)}`);
+                }
+            }
+
+            // Log sessionStorage
+            console.log('sessionStorage:');
+            for (let key in sessionStorage) {
+                if (sessionStorage.hasOwnProperty(key)) {
+                    console.log(`${key}: ${sessionStorage.getItem(key)}`);
+                }
+            }
+
+            // Log cookies
+            console.log('Cookies:');
+            document.cookie.split(';').forEach(cookie => {
+                console.log(cookie.trim());
+            });
+        }
+
+        // Request storage access from the parent domain and log data
+        async function requestStorageAccess() {
             try {
-                // Request storage access from the parent
+                // Request access to the parent storage (cookies, localStorage, sessionStorage)
                 await document.requestStorageAccess();
                 console.log('Storage access granted!');
+
+                // Print storage data
+                printStorageData();
             } catch (e) {
                 console.error('Storage access denied:', e);
             }
-        });
+        }
+
+        // Trigger storage access request when button is clicked
+        document.getElementById('requestStorageButton').addEventListener('click', requestStorageAccess);
     </script>
 </body>
 </html>
