@@ -3,25 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IFrame PostMessage Example</title>
-    <script>
-        // This function sends a postMessage to the parent every second
-        function sendDataToParent() {
-            const data = {
-                message: 'Hello from iframe!',
-                timestamp: new Date().toISOString()
-            };
-
-            // Send the data to the parent window
-            window.parent.postMessage(data, '*');
-        }
-
-        // Send data every second
-        setInterval(sendDataToParent, 1000);
-    </script>
+    <title>Iframe Sending postMessage</title>
 </head>
 <body>
-    <h1>IFrame Content</h1>
-    <p>This iframe will send messages to the parent every second.</p>
+    <h1>Iframe Content</h1>
+
+    <script>
+        // Send a postMessage to the parent window every second
+        setInterval(function() {
+            // PostMessage with 'magic' == 'SHIC' to match the parent listener
+            window.parent.postMessage({
+                magic: 'SHIC', 
+                data: 'Hello from iframe! Time: ' + new Date().toLocaleTimeString()
+            }, '*');  // '*' allows communication with any origin (you can specify a more restrictive origin if needed)
+        }, 1000);  // Send message every 1 second
+    </script>
 </body>
 </html>
