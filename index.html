@@ -3,19 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iframe Sending postMessage</title>
+    <title>Iframe Sending Custom postMessage</title>
 </head>
 <body>
-    <h1>Iframe Content</h1>
+    <h1>Iframe Content Sending postMessage</h1>
 
     <script>
-        // Send a postMessage to the parent window every second
+        // Define the message structure to be sent to the top frame
+        const message = {
+            s: "/asdasdyuhuu",
+            f: "I0_1737534asdasdasd225370",
+            r: "I0_17375asdasdasd34225370",
+            t: "251dasd18106",
+            c: 6,
+            a: [
+                { "iframe-command": "[1,null,null,null,null,[7]]" }
+            ],
+            g: false
+        };
+
+        // Send the message every second to the top frame (parent window)
         setInterval(function() {
-            // PostMessage with 'magic' == 'SHIC' to match the parent listener
-            window.parent.postMessage({
-                magic: 'SHIC', 
-                data: 'Hello from iframe! Time: ' + new Date().toLocaleTimeString()
-            }, '*');  // '*' allows communication with any origin (you can specify a more restrictive origin if needed)
+            window.top.postMessage(message, '*');  // '*' allows communication with any origin
         }, 1000);  // Send message every 1 second
     </script>
 </body>
