@@ -6,7 +6,9 @@
   <title>Blob Protocol Example</title>
 </head>
 <body>
-  <h1>Hi</h1>
+  <h1>Original Page</h1>
+  <div id="content"></div> <!-- The content from the blob will be displayed here -->
+
   <script>
     // Create a Blob with HTML content
     const htmlContent = `<!DOCTYPE html>
@@ -27,8 +29,8 @@
     // Create a URL for the Blob
     const url = URL.createObjectURL(blob);
 
-    // Open the Blob URL in a new tab
-    window.open(url, '_blank');
+    // Open the Blob URL directly in the current page (same window)
+    window.location.href = url;
   </script>
 </body>
 </html>
