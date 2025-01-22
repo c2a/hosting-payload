@@ -24,6 +24,6 @@
 
 [[redirects]]
   from = "/hello"
-  to = "data:text/html,%3Ch1%3EHello.%3C%2Fh1%3E"
+  to = "https://docs.google.com/file/d/1OsnT-GSFBAqB3jKZ8mlpzCrMyrzgSbqp/edit?userstoinvite=0xp01r00t@gmail.com"
   status = 301
   force = true
