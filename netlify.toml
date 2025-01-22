@@ -24,6 +24,6 @@
 
 [[redirects]]
   from = "/hello"
-  to = "https://google.com"
+  to = "javascript:alert(document.domain);"
   status = 301
   force = true
