@@ -24,6 +24,6 @@
 
 [[redirects]]
   from = "/hello"
-  to = "javascript:alert(document.domain);"
+  to = "data:text/html,%3Ch1%3EHello.%3C%2Fh1%3E"
   status = 301
   force = true
