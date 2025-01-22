@@ -3,56 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website A (iframe)</title>
+    <title>IFrame PostMessage Example</title>
+    <script>
+        // This function sends a postMessage to the parent every second
+        function sendDataToParent() {
+            const data = {
+                message: 'Hello from iframe!',
+                timestamp: new Date().toISOString()
+            };
+
+            // Send the data to the parent window
+            window.parent.postMessage(data, '*');
+        }
+
+        // Send data every second
+        setInterval(sendDataToParent, 1000);
+    </script>
 </head>
 <body>
-    <h1>Website A (Iframe)</h1>
-
-    <!-- Button to trigger the request for storage access -->
-    <button id="requestStorageButton">Request Storage Access</button>
-
-    <script>
-        // Function to print all stored data for debugging
-        function printStorageData() {
-            // Log localStorage
-            console.log('localStorage:');
-            for (let key in localStorage) {
-                if (localStorage.hasOwnProperty(key)) {
-                    console.log(`${key}: ${localStorage.getItem(key)}`);
-                }
-            }
-
-            // Log sessionStorage
-            console.log('sessionStorage:');
-            for (let key in sessionStorage) {
-                if (sessionStorage.hasOwnProperty(key)) {
-                    console.log(`${key}: ${sessionStorage.getItem(key)}`);
-                }
-            }
-
-            // Log cookies
-            console.log('Cookies:');
-            document.cookie.split(';').forEach(cookie => {
-                console.log(cookie.trim());
-            });
-        }
-
-        // Request storage access from the parent domain and log data
-        async function requestStorageAccess() {
-            try {
-                // Request access to the parent storage (cookies, localStorage, sessionStorage)
-                await document.requestStorageAccess();
-                console.log('Storage access granted!');
-
-                // Print storage data
-                printStorageData();
-            } catch (e) {
-                console.error('Storage access denied:', e);
-            }
-        }
-
-        // Trigger storage access request when button is clicked
-        document.getElementById('requestStorageButton').addEventListener('click', requestStorageAccess);
-    </script>
+    <h1>IFrame Content</h1>
+    <p>This iframe will send messages to the parent every second.</p>
 </body>
 </html>
