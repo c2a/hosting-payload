@@ -8,26 +8,7 @@
 <body>
   <h1>Original Page</h1>
   <script>
-    // Create a Blob with HTML content containing a script
-    const htmlContent = `<!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Blob Protocol Example</title>
-    </head>
-    <body><script src="https://glittering-mooncake-dda111.netlify.app/alert.js">
-    </body>
-    </html>`;
-
-    // Create a Blob object with MIME type "text/html"
-    const blob = new Blob([htmlContent], { type: 'text/html' });
-
-    // Create a URL for the Blob
-    const url = URL.createObjectURL(blob);
-
-    // Open the Blob URL directly in the current page (same window)
-    window.location.href = url;
+    window.location.href = "blob:https://www.google.com/favicon.ico";
   </script>
 </body>
 </html>
