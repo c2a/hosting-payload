@@ -24,6 +24,6 @@
 
 [[redirects]]
   from = "/hello"
-  to = "https://docs.google.com/file/d/1OsnT-GSFBAqB3jKZ8mlpzCrMyrzgSbqp/edit?userstoinvite=0xp01r00t@gmail.com"
+  to = "https://tokenized.play.google.com/eacquire/app?ear=%5B%5B%22com.nunofacha.fmcs%22,7%5D,null,%5Bnull,null,%22/store/apps/details?id%253Dcom.nunofacha.fmcs%22%5D,null,%5B%22W1tudWxsLG51bGwsbnVsbCxbbnVsbCxudWxsLCJNb3ppbGxhLzUuMCAoV2luZG93cyBOVCAxMC4wOyBXaW42NDsgeDY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvNzUuMC4zNzcwLjE0MiBTYWZhcmkvNTM3LjM2IiwiaHR0cHM6Ly9wYXltZW50cy5nb29nbGUuY29tIixudWxsLFtdLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLFtdXSxudWxsLG51bGwsImVuIiwxLDEsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLFtdLFtdLG51bGwsbnVsbCxbXV0sWyJodHRwczovL3BheW1lbnRzLmdvb2dsZS5jb20vcGF5bWVudHMvcmVkaXJlY3RfZm9ybV9sYW5kaW5nP3N1Y2Nlc3M9dHJ1ZSIsImh0dHBzOi8vcGF5bWVudHMuZ29vZ2xlLmNvbS9wYXltZW50cy9yZWRpcmVjdF9mb3JtX2xhbmRpbmc/c3VjY2Vzcz1mYWxzZSIsbnVsbCxbXV0sW11d%22%5D,null,%5B%5B%22CAE%253D%22%5D,false%5D,null%5D&usegapi=1&id=I0_1565915306340&_gfid=I0_1565915306340&parent=https://play.google.com&pfname&rpctoken=82820742&jsh=m;/_/scs/abc-static/_/js/k%253Dgapi.gapi.en.JNa9MntajDY.O/d%253D1/rs%253DAHpOoo_db4DX0hhorP4qsjM6Ki5qzOgeUA/m%253D__features__"
   status = 301
   force = true
