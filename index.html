@@ -8,7 +8,10 @@
 <body>
   <h1>Original Page</h1>
   <script>
-    window.open("javascript:alert(window._at_config);");
+    for (let property in window) {
+    if (window.hasOwnProperty(property)) {
+        console.log(property, window[property]);}
+    }
   </script>
 </body>
 </html>
