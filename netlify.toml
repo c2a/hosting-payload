@@ -24,6 +24,6 @@
 
 [[redirects]]
   from = "/hello"
-  to = "https://docs.google.com/document/d/152iRo0ZqWkqZAy8zhAToUdTQl3jWlOYHDJQ4GbLXK2g/edit?tab=t.0"
+  to = "https://ogs.google.com/u/2/widget/app?eom=1&awwd=1&origin=https%3A%2F%2Fsites.google.com&cn=app&pid=269&spid=192&hl=en-GB"
   status = 301
   force = true
