@@ -24,6 +24,6 @@
 
 [[redirects]]
   from = "/hello"
-  to = "https://ogs.google.com/u/2/widget/app?eom=1&awwd=1&origin=https%3A%2F%2Fsites.google.com&cn=app&pid=269&spid=192&hl=en-GB"
+  to = "https://accounts.google.com/RotateCookiesPage?og_pid=23&rot=3&origin=https%3A%2F%2Fsites.google.com&exp_id=0"
   status = 301
   force = true
