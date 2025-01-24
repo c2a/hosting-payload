@@ -9,26 +9,23 @@
   <h1>hello</h1>
 
   <script>
-    console.log("window.parent: ", window.parent);
-console.log("window.top: ", window.top);
-console.log("window.opener: ", window.opener);
-console.log("document.referrer: ", document.referrer);
-console.log("window.localStorage: ", window.localStorage ? "Available" : "Not Available");
-console.log("window.sessionStorage: ", window.sessionStorage ? "Available" : "Not Available");
+    // Get all properties and methods from the window object
+const allWindowProperties = Object.getOwnPropertyNames(window);
 
-// Check if postMessage is available
-if (typeof window.postMessage === 'function') {
-    console.log("window.postMessage: Available");
-} else {
-    console.log("window.postMessage: Not Available");
+// Get properties and methods from the window's prototype chain
+const prototypeChain = [];
+let proto = Object.getPrototypeOf(window);
+while (proto !== null) {
+    prototypeChain.push(...Object.getOwnPropertyNames(proto));
+    proto = Object.getPrototypeOf(proto);
 }
 
-// Check if direct DOM manipulation is possible (same-origin only)
-try {
-    console.log("window.parent.document: ", window.parent.document);
-} catch (e) {
-    console.log("window.parent.document: Not Accessible (cross-origin)");
-}
+// Combine both and remove duplicates
+const combinedProperties = [...new Set([...allWindowProperties, ...prototypeChain])];
+
+// Print all available methods and properties
+console.log(combinedProperties);
+
 
   </script>
 </body>
