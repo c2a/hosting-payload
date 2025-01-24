@@ -3,28 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blob Redirect Example</title>
+  <title>HTML Blob Redirect Example</title>
 </head>
 <body>
-  <h1>Blob Image Redirect</h1>
-  <button id="loadImageBtn">Load Image</button>
+  <h1>HTML Blob Redirect</h1>
+  <button id="loadHtmlBtn">Load HTML Blob</button>
 
   <script>
-    // Sample image URL (you can use any image URL here)
-    const imageUrl = 'https://akcdn.detik.net.id/community/media/visual/2025/01/18/ilustrasi-kucing-kecil_169.jpeg?w=700&q=90';
+    document.getElementById('loadHtmlBtn').addEventListener('click', () => {
+      // Create HTML content with an external script reference
+      const htmlContent = `
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <title>HTML Blob</title>
+        </head>
+        <body>
+          <h1>HTML Blob Loaded!</h1>
+          <script src="/script.js">
+        </body>
+        </html>
+      `;
 
-    document.getElementById('loadImageBtn').addEventListener('click', () => {
-      // Fetch the image as a Blob
-      fetch(imageUrl)
-        .then(response => response.blob()) // Convert to Blob
-        .then(blob => {
-          // Create a URL for the Blob
-          const blobUrl = URL.createObjectURL(blob);
-          
-          // Redirect the current window to the Blob URL
-          window.location.href = blobUrl;
-        })
-        .catch(error => console.error('Error loading image:', error));
+      // Create a Blob with the HTML content
+      const blob = new Blob([htmlContent], { type: 'text/html' });
+
+      // Create a URL for the Blob
+      const blobUrl = URL.createObjectURL(blob);
+      
+      // Redirect the current window to the Blob URL
+      window.location.href = blobUrl;
     });
   </script>
 </body>
