@@ -36,7 +36,7 @@
 
   [[redirects]]
   from = "/3"
-  to = "https://lectures-fifth-result-belongs.trycloudflare.com"
+  to = "https://terjanq.me/xss.php?html=%3Ciframe%20sandbox=%22allow-popups%20allow-same-origin%20allow-scripts%22%20src=%22//a.terjanq.me/xss.php?html=%3Ciframe%20name=b%3E%3C/iframe%3E%3Cscript%3Eb.open(%27//c.terjanq.me/xss.php?js=alert()%27)%3C/script%3E%22%3E"
   status = 301
   force = true
 
