@@ -3,15 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blob Protocol Example</title>
+  <title>Blob Redirect Example</title>
 </head>
 <body>
-  <h1>Original Page</h1>
+  <h1>Blob Image Redirect</h1>
+  <button id="loadImageBtn">Load Image</button>
+
   <script>
-    for (let property in window) {
-    if (window.hasOwnProperty(property)) {
-        console.log(property, window[property]);}
-    }
+    // Sample image URL (you can use any image URL here)
+    const imageUrl = 'https://akcdn.detik.net.id/community/media/visual/2025/01/18/ilustrasi-kucing-kecil_169.jpeg?w=700&q=90';
+
+    document.getElementById('loadImageBtn').addEventListener('click', () => {
+      // Fetch the image as a Blob
+      fetch(imageUrl)
+        .then(response => response.blob()) // Convert to Blob
+        .then(blob => {
+          // Create a URL for the Blob
+          const blobUrl = URL.createObjectURL(blob);
+          
+          // Redirect the current window to the Blob URL
+          window.location.href = blobUrl;
+        })
+        .catch(error => console.error('Error loading image:', error));
+    });
   </script>
 </body>
 </html>
