@@ -10,21 +10,37 @@
 
   <script>
     // Get all properties and methods from the window object
-const allWindowProperties = Object.getOwnPropertyNames(window);
-
-// Get properties and methods from the window's prototype chain
-const prototypeChain = [];
-let proto = Object.getPrototypeOf(window);
-while (proto !== null) {
-    prototypeChain.push(...Object.getOwnPropertyNames(proto));
-    proto = Object.getPrototypeOf(proto);
+// Function to get all window properties and methods
+function getWindowProperties(windowObject) {
+    const allProperties = [];
+    let proto = windowObject;
+    while (proto !== null) {
+        allProperties.push(...Object.getOwnPropertyNames(proto));
+        proto = Object.getPrototypeOf(proto);
+    }
+    return allProperties;
 }
 
-// Combine both and remove duplicates
-const combinedProperties = [...new Set([...allWindowProperties, ...prototypeChain])];
+// Get initial properties (before script runs)
+const initialWindowProperties = new Set(getWindowProperties(window));
 
-// Print all available methods and properties
-console.log(combinedProperties);
+// Log a message to track custom properties/methods
+console.log("Initial Window Properties:", initialWindowProperties);
+
+// Simulate or run your custom code here (e.g., adding custom properties/methods to window)
+window.customMethod = function() {
+    console.log("This is a custom method!");
+};
+window.customProperty = "This is a custom property";
+
+// Get properties again after adding custom ones
+const currentWindowProperties = new Set(getWindowProperties(window));
+
+// Identify and print out the custom properties
+const customProperties = [...currentWindowProperties].filter(prop => !initialWindowProperties.has(prop));
+
+console.log("Custom Properties/Methods:", customProperties);
+
 
 
   </script>
