@@ -36,7 +36,7 @@
 
   [[redirects]]
   from = "/3"
-  to = "https://docs.google.com/drivesharing/driveshare?id=152iRo0ZqWkqZAy8zhAToUdTQl3jWlOYHDJQ4GbLXK2g&resourcekey=["152iRo0ZqWkqZAy8zhAToUdTQl3jWlOYHDJQ4GbLXK2g"]&themeColor=2&themeMode=1&foreignService=kix&gaiaService=writely&shareService=kix&command=init_share&subapp=10&popupWindowsEnabled=true&shareUiType=default&hl=en-GB&authuser=0&rand=1737711467419&locationHint=unknown&preload=false&triggerInstantMs=1737711467418&initialCommandHint=settings&origin=https%3A%2F%2Fsites.google.com"
+  to = "https://docs.google.com/drivesharing/driveshare?id=152iRo0ZqWkqZAy8zhAToUdTQl3jWlOYHDJQ4GbLXK2g&resourcekey=[\"152iRo0ZqWkqZAy8zhAToUdTQl3jWlOYHDJQ4GbLXK2g\"]&themeColor=2&themeMode=1&foreignService=kix&gaiaService=writely&shareService=kix&command=init_share&subapp=10&popupWindowsEnabled=true&shareUiType=default&hl=en-GB&authuser=0&rand=1737711467419&locationHint=unknown&preload=false&triggerInstantMs=1737711467418&initialCommandHint=settings&origin=https%3A%2F%2Fsites.google.com"
   status = 301
   force = true
 
