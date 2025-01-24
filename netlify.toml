@@ -36,7 +36,7 @@
 
   [[redirects]]
   from = "/3"
-  to = "/"
+  to = "https://lectures-fifth-result-belongs.trycloudflare.com"
   status = 301
   force = true
 
