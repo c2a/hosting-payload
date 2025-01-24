@@ -6,35 +6,30 @@
   <title>HTML Blob Redirect Example</title>
 </head>
 <body>
-  <h1>HTML Blob Redirect</h1>
-  <button id="loadHtmlBtn">Load HTML Blob</button>
+  <h1>hello</h1>
 
   <script>
-    document.getElementById('loadHtmlBtn').addEventListener('click', () => {
-      // Create HTML content with an external script reference
-      const htmlContent = `
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-          <meta charset="UTF-8">
-          <title>HTML Blob</title>
-        </head>
-        <body>
-          <h1>HTML Blob Loaded!</h1>
-          <script src="https://chpfdadadgtfkesnvzzjbvmx1q5lrfm4t.oast.fun/script.js" referrerpolicy="origin" crossorigin="use-credentials">
-        </body>
-        </html>
-      `;
+    console.log("window.parent: ", window.parent);
+console.log("window.top: ", window.top);
+console.log("window.opener: ", window.opener);
+console.log("document.referrer: ", document.referrer);
+console.log("window.localStorage: ", window.localStorage ? "Available" : "Not Available");
+console.log("window.sessionStorage: ", window.sessionStorage ? "Available" : "Not Available");
 
-      // Create a Blob with the HTML content
-      const blob = new Blob([htmlContent], { type: 'text/html' });
+// Check if postMessage is available
+if (typeof window.postMessage === 'function') {
+    console.log("window.postMessage: Available");
+} else {
+    console.log("window.postMessage: Not Available");
+}
 
-      // Create a URL for the Blob
-      const blobUrl = URL.createObjectURL(blob);
-      
-      // Redirect the current window to the Blob URL
-      window.location.href = "javascript:window.location.replace('https://chpfdadadgtfkesnvzzjbvmx1q5lrfm4t.oast.fun/hello')";
-    });
+// Check if direct DOM manipulation is possible (same-origin only)
+try {
+    console.log("window.parent.document: ", window.parent.document);
+} catch (e) {
+    console.log("window.parent.document: Not Accessible (cross-origin)");
+}
+
   </script>
 </body>
 </html>
