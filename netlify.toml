@@ -36,7 +36,7 @@
 
   [[redirects]]
   from = "/3"
-  to = "https://sites.google.com/u/0/d/1LQYLJyJHZDXsvfCRb3guj7YRA-SNVA1v/pagediffpublished?prt=AEvxacLaY1ay6DFFIvIfV99-DucAYad4thLJNA-Zi7Th_mPxj1z3fvptW7kZakZcbpSlVLrcr_b4MnZnsGDA6JvCIMrOfQpJZb0FOaQ1CXZUhPgCBCz6BjoekmV9isSTf3Kl7fztRE-DiBhwDBDYFh_CjTGxHgHKtT7xfEcsLresm5FdVw34ELYzgbtnTQ%3D%3D"
+  to = "/"
   status = 301
   force = true
 
