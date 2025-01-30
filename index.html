@@ -17,11 +17,50 @@ var htmlContent = `
                 <html lang="en">
                 <head>
                 <script>
-                console.log('Methods available on window.top:');
-console.log(Object.getOwnPropertyNames(window.top).filter(property => typeof window.top[property] === 'function'));
+                (function() {
+  // Function to check and log accessible documents and elements
+  function checkAccess() {
+    let accessLog = [];
 
-console.log('Methods available on window.parent:');
-console.log(Object.getOwnPropertyNames(window.parent).filter(property => typeof window.parent[property] === 'function'));
+    // Check if we can access the top document (parent of the parent)
+    try {
+      let topDoc = window.top.document;
+      accessLog.push('Access to top document: Successful');
+      accessLog.push('Top document title: ' + topDoc.title);
+      accessLog.push('Top document URL: ' + topDoc.URL);
+    } catch (e) {
+      accessLog.push('Access to top document: Denied (' + e.message + ')');
+    }
+
+    // Check if we can access the parent document
+    try {
+      let parentDoc = window.parent.document;
+      accessLog.push('Access to parent document: Successful');
+      accessLog.push('Parent document title: ' + parentDoc.title);
+      accessLog.push('Parent document URL: ' + parentDoc.URL);
+    } catch (e) {
+      accessLog.push('Access to parent document: Denied (' + e.message + ')');
+    }
+
+    // Access tags in the iframe's own document
+    try {
+      let iframeDoc = document;
+      let body = iframeDoc.body;
+      let divs = iframeDoc.getElementsByTagName('div');
+      accessLog.push('Access to iframe document: Successful');
+      accessLog.push('Number of divs in iframe: ' + divs.length);
+    } catch (e) {
+      accessLog.push('Access to iframe document: Denied (' + e.message + ')');
+    }
+
+    // Output the access log for debugging
+    console.log(accessLog.join('\n'));
+  }
+
+  // Run the check when the iframe content is loaded
+  window.addEventListener('load', checkAccess);
+})();
+
                 <\\/script>
                 <script>console.log(window.top);<\\/script>
                 <script>window.parent.location.href = "https://google.com";<\\/script>
