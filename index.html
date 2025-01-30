@@ -12,7 +12,7 @@ var htmlContent = `
   <html>
   <head>
   <script>
-  const blob = new Blob(["helloworld"], { type: 'text/html' });
+  const blob = new Blob(["<script>alert(document.cookie);<\/script>helloworld"], { type: 'text/html' });
 
             // Create a URL for the Blob object
             const blobUrl = URL.createObjectURL(blob);
