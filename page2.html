@@ -1,6 +1,21 @@
 <html>
   <head>
-    <script>console.log(window.top);</script>
+    <script>try {
+    // Find the iframe element by class name
+    let iframe = document.querySelector('iframe.YMEQtf'); // Select based on class name
+
+    // Try to access the iframe's contentWindow
+    let iframeWindow = iframe.contentWindow;
+
+    // Attempt to interact with the iframe (e.g., access its document)
+    console.log(iframeWindow.document.title); // Example of accessing iframe content
+
+    // If this succeeds, the iframe has access to the parent
+    console.log("Iframe has access to parent.");
+} catch (error) {
+    console.error("Access to iframe is restricted due to cross-origin policy or sandboxing.", error);
+}
+</script>
     <script>console.log(window.parent);</script>
   </head>
   <body>
