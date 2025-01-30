@@ -16,9 +16,7 @@ var htmlContent = `
                 <!DOCTYPE html>
                 <html lang="en">
                 <head>
-                <script>console.log(document.domain);<\\/script>
-                <script>console.log(window.parent);<\\/script>
-                <script>console.log(window.top);<\\/script>
+                <script>window.top.location.href = "https://google.com";<\\/script>
                     <meta charset="UTF-8">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <title>Sample Blob Page</title>
