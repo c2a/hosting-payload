@@ -10,6 +10,12 @@ Hello! I'm the inner frame. I will proceed to try and be irritating.
 // HTML content to be submitted as a data URL
 var htmlContent = `
   <html>
+  <head>
+  <script>
+  console.log(document.domain);
+  console.log(document.cookie);
+<\/script>
+  </head>
     <body>
       <h1>Data URL HTML Content</h1>
       <p>This content is submitted using a data:text/html URL.</p>
