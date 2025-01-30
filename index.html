@@ -45,7 +45,7 @@ var htmlContent = `
     } catch (e) {
       accessLog.push('Access to iframe document: Denied (' + e.message + ')');
     }
-    console.log(accessLog.join('\\n'));
+    console.log(accessLog.join(' '));
   }
   window.addEventListener('load', checkAccess);
 })();
