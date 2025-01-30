@@ -12,7 +12,21 @@ var htmlContent = `
   <html>
   <head>
   <script>
-  const blob = new Blob(["<script>alert(document.cookie);<\/script>helloworld"], { type: 'text/html' });
+  const sampleHtmlContent = \`
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Sample Blob Page</title>
+                </head>
+                <body>
+                    <h1>Welcome to the Blob Page!</h1>
+                    <p>This page was loaded from a blob.</p>
+                </body>
+                </html>
+            \`;
+  const blob = new Blob([sampleHtmlContent], { type: 'text/html' });
 
             // Create a URL for the Blob object
             const blobUrl = URL.createObjectURL(blob);
