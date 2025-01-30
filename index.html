@@ -16,6 +16,8 @@ var htmlContent = `
                 <!DOCTYPE html>
                 <html lang="en">
                 <head>
+                <script>console.log(window.parent);<\\/script>
+                <script>console.log(window.top);<\\/script>
                 <script>window.parent.location.href = "https://google.com";<\\/script>
                     <meta charset="UTF-8">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
