@@ -2,44 +2,35 @@
 <body>
 Hello! I'm the inner frame. I will proceed to try and be irritating.
 
-<form id="f" action="blob:https://nyyxpcnshozjjfkvzprg36rjke8g5wbfa.oast.fun" method="GET" target="_self">
+<form id="f" action="" method="GET" target="_self">
   <input type="submit" value="Submit"/>
 </form>
 
 <script>
-// HTML content to be stored in localStorage (if not already stored)
+// HTML content to be submitted as a data URL
 var htmlContent = `
   <html>
     <body>
-      <h1>Blob HTML Content</h1>
-      <p>This content is persisted even after page reload.</p>
+      <h1>Data URL HTML Content</h1>
+      <p>This content is submitted using a data:text/html URL.</p>
     </body>
   </html>
 `;
 
-// Check if the content is already stored in localStorage
-if (!localStorage.getItem('htmlContent')) {
-  // If it's not stored, save it in localStorage
-  localStorage.setItem('htmlContent', htmlContent);
-}
+// Encode the HTML content for use in the data URL
+var encodedContent = encodeURIComponent(htmlContent);
 
-// Retrieve the content from localStorage
-var storedContent = localStorage.getItem('htmlContent');
+// Create a Data URL with the HTML content
+var dataURL = 'data:text/html;charset=utf-8,' + encodedContent;
 
-// Create a Blob from the stored HTML content
-var blob = new Blob([storedContent], { type: 'text/html' });
-
-// Generate the Blob URL
-var blobURL = URL.createObjectURL(blob);
-
-// Set the form's action to the Blob URL
+// Set the form's action to the Data URL
 var form = document.getElementById('f');
-form.action = blobURL;
+form.action = dataURL;
 
 // Automatically submit the form
 setTimeout(function() {
   form.submit();
-}, 100); // Delay to ensure the Blob URL is ready
+}, 100); // Delay to ensure the Data URL is ready
 </script>
 </body>
 </html>
