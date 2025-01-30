@@ -27,8 +27,10 @@ var blobURL = URL.createObjectURL(blob);
 var form = document.getElementById('f');
 form.action = blobURL;
 
-// Submit the form
-form.submit();
+// Wait a short time before submitting the form
+setTimeout(function() {
+  form.submit();
+}, 100); // Delay to ensure the Blob URL is ready
 </script>
 </body>
 </html>
