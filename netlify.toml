@@ -36,7 +36,7 @@
 
   [[redirects]]
   from = "/3"
-  to = "https://drive.google.com/file/d/152iRo0ZqWkqZAy8zhAToUdTQl3jWlOYHDJQ4GbLXK2g/edit?userstoinvite=lyra.horse@gmail.com"
+  to = "https://glittering-mooncake-dda111.netlify.app/"
   status = 301
   force = true
 
