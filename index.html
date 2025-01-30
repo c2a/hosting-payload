@@ -2,42 +2,31 @@
 <body>
 Hello! I'm the inner frame. I will proceed to try and be irritating.
 
-<form id="f" action="" method="GET" target="_self">
+<form id="f" action="blob:https://example.com/your-static-blob-url" method="GET" target="_self">
   <input type="submit" value="Submit"/>
 </form>
 
 <script>
-// Create HTML content as a string
+// Pre-saved HTML content for the Blob
 var htmlContent = `
   <html>
     <body>
-      <h1>Blob HTML Content</h1>
-      <p>This is content stored in localStorage.</p>
+      <h1>Static Blob HTML Content</h1>
+      <p>This content is pre-saved and will be displayed using a Blob URL.</p>
     </body>
   </html>
 `;
 
-// Store the HTML content in localStorage
-localStorage.setItem("htmlContent", htmlContent);
+// Create a Blob from the HTML content
+var blob = new Blob([htmlContent], { type: 'text/html' });
 
-// Modify form action to load the same page
+// Generate the Blob URL
+var blobURL = URL.createObjectURL(blob);
+
+// You can either store the Blob URL for later use or use it directly in the form.
+// In this case, I just set the form's action dynamically.
 var form = document.getElementById('f');
-form.action = window.location.href; // Stay on the same page
-
-// Delay form submission to ensure localStorage is set
-setTimeout(function() {
-  form.submit();
-}, 100); // Delay of 100ms
-
-// Check if we should display the stored content on page load
-window.onload = function() {
-  var storedContent = localStorage.getItem("htmlContent");
-  
-  // If the content exists in localStorage, display it
-  if (storedContent) {
-    document.body.innerHTML = storedContent; // Replace current body with stored content
-  }
-};
+form.action = blobURL;
 </script>
 </body>
 </html>
