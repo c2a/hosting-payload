@@ -2,31 +2,44 @@
 <body>
 Hello! I'm the inner frame. I will proceed to try and be irritating.
 
-<form id="f" action="blob:https://example.com/your-static-blob-url" method="GET" target="_self">
+<form id="f" action="" method="GET" target="_self">
   <input type="submit" value="Submit"/>
 </form>
 
 <script>
-// Pre-saved HTML content for the Blob
+// HTML content to be stored in localStorage (if not already stored)
 var htmlContent = `
   <html>
     <body>
-      <h1>Static Blob HTML Content</h1>
-      <p>This content is pre-saved and will be displayed using a Blob URL.</p>
+      <h1>Blob HTML Content</h1>
+      <p>This content is persisted even after page reload.</p>
     </body>
   </html>
 `;
 
-// Create a Blob from the HTML content
-var blob = new Blob([htmlContent], { type: 'text/html' });
+// Check if the content is already stored in localStorage
+if (!localStorage.getItem('htmlContent')) {
+  // If it's not stored, save it in localStorage
+  localStorage.setItem('htmlContent', htmlContent);
+}
+
+// Retrieve the content from localStorage
+var storedContent = localStorage.getItem('htmlContent');
+
+// Create a Blob from the stored HTML content
+var blob = new Blob([storedContent], { type: 'text/html' });
 
 // Generate the Blob URL
 var blobURL = URL.createObjectURL(blob);
 
-// You can either store the Blob URL for later use or use it directly in the form.
-// In this case, I just set the form's action dynamically.
+// Set the form's action to the Blob URL
 var form = document.getElementById('f');
 form.action = blobURL;
+
+// Automatically submit the form
+setTimeout(function() {
+  form.submit();
+}, 100); // Delay to ensure the Blob URL is ready
 </script>
 </body>
 </html>
