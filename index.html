@@ -8,10 +8,10 @@
 <body>
   <h1>hello</h1>
   <script>
-  const win = window.open(`javascript:alert(document.domain);`)
+  const win = window.location(`javascript:alert(document.domain);`)
 
   setTimeout(() => {
-    const win2 = window.open(``)
+    const win2 = window.location(``)
     setTimeout(() => {
       win2.close()
       win.location = URL.createObjectURL(new Blob([`
