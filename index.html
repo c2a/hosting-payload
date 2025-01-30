@@ -11,10 +11,10 @@
   <script>
     // Step 1: Show the alert with the current domain
     window.location = 'javascript:console.log(document.domain);';
-    
+    setTimeout(() => {
+              window.location = 'about:blank'; // Go back in the history after 500ms
+            }, 500);
     // Step 2: Redirect to a blank page (or use another URL)
-    window.location = 'about:blank';
-
     // Step 3: After 1 second, inject a script into the page to simulate history navigation
     setTimeout(() => {
       window.location = URL.createObjectURL(new Blob([`
@@ -22,11 +22,11 @@
           <script>
             setTimeout(() => {
               history.back(); // Go back in the history after 500ms
-            }, 1000);
+            }, 500);
           <\/script>
         </body></html>
       `], { type: "text/html" }));
-    }, 1000);
+    }, 500);
   </script>
 </body>
 </html>
