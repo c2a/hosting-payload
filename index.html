@@ -1,16 +1,34 @@
 <html>
 <body>
 Hello! I'm the inner frame. I will proceed to try and be irritating.
-<form id="f" action="blob:https://sites.google.com" method="GET" target="_self">
-<input type="submit" value="Submit"/>
+
+<form id="f" action="" method="GET" target="_self">
+  <input type="submit" value="Submit"/>
 </form>
+
 <script>
-// Does not work.
-//window.top.location = 'http://www.google.com';
-// Works!
-e = document.getElementById('f');
-//alert('about to submit form....');
-e.submit();
+// Create HTML content as a Blob
+var htmlContent = `
+  <html>
+    <body>
+      <h1>Blob HTML Content</h1>
+      <p>This is content from a Blob URL.</p>
+    </body>
+  </html>
+`;
+
+// Create a Blob from the HTML content
+var blob = new Blob([htmlContent], { type: 'text/html' });
+
+// Generate a Blob URL
+var blobURL = URL.createObjectURL(blob);
+
+// Set the form action to the Blob URL
+var form = document.getElementById('f');
+form.action = blobURL;
+
+// Submit the form
+form.submit();
 </script>
 </body>
 </html>
