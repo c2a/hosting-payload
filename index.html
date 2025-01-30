@@ -7,30 +7,37 @@ Hello! I'm the inner frame. I will proceed to try and be irritating.
 </form>
 
 <script>
-// Create HTML content as a Blob
+// Create HTML content as a string
 var htmlContent = `
   <html>
     <body>
       <h1>Blob HTML Content</h1>
-      <p>This is content from a Blob URL.</p>
+      <p>This is content stored in localStorage.</p>
     </body>
   </html>
 `;
 
-// Create a Blob from the HTML content
-var blob = new Blob([htmlContent], { type: 'text/html' });
+// Store the HTML content in localStorage
+localStorage.setItem("htmlContent", htmlContent);
 
-// Generate a Blob URL
-var blobURL = URL.createObjectURL(blob);
-
-// Set the form action to the Blob URL
+// Modify form action to load the same page
 var form = document.getElementById('f');
-form.action = blobURL;
+form.action = window.location.href; // Stay on the same page
 
-// Wait a short time before submitting the form
+// Delay form submission to ensure localStorage is set
 setTimeout(function() {
   form.submit();
-}, 100); // Delay to ensure the Blob URL is ready
+}, 100); // Delay of 100ms
+
+// Check if we should display the stored content on page load
+window.onload = function() {
+  var storedContent = localStorage.getItem("htmlContent");
+  
+  // If the content exists in localStorage, display it
+  if (storedContent) {
+    document.body.innerHTML = storedContent; // Replace current body with stored content
+  }
+};
 </script>
 </body>
 </html>
