@@ -1,15 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>test test</title>
-</head>
+<html>
 <body>
-  <h1>hello</h1>  
-  <script>
-   top.location = 'https://sites.google.com';
-window.open('https://www.evil.com',"popup","width=825,height=500,resizable=Yes,status=yes,toolbar=no,scrollbars=yes,,left=0,top=0");
-  </script>
+Hello! I'm the inner frame. I will proceed to try and be irritating.
+<form id="f" action="http://sites.google.com" method="GET" target="_top">
+<input type="submit" value="Submit"/>
+</form>
+<script>
+// Does not work.
+window.top.location = 'http://www.google.com';
+// Works!
+e = document.getElementById('f');
+alert('about to submit form....');
+e.submit();
+</script>
 </body>
 </html>
