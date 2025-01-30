@@ -12,7 +12,13 @@ var htmlContent = `
   <html>
   <head>
   <script>
-  window.location.href= "javascript:alert(document.domain);";
+  const blob = new Blob(["helloworld"], { type: 'text/html' });
+
+            // Create a URL for the Blob object
+            const blobUrl = URL.createObjectURL(blob);
+
+            // Redirect to the Blob URL
+            window.location.href = blobUrl;
 <\/script>
   </head>
     <body>
