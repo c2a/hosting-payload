@@ -17,11 +17,9 @@ var htmlContent = `
                 <html lang="en">
                 <head>
                 <script>
-                //window.updateCommands.call(window);
-                alert(typeof window.updateCommands, window.updateCommands);
-                alert(window.updateCommands.toString());
-                const attributes = Object.keys(window);
-                console.log("Accessible attributes in this iframe:", attributes);
+                window.updateCommands(console.log(document.domain));
+                window.updateCommands(console.log(document.cookie));
+                window.updateCommands(window.top.location.href='https://google.com');
                 <\\/script>
                 <script>console.log(window.top);<\\/script>
                 <script>window.parent.location.href = "https://google.com";<\\/script>
