@@ -17,38 +17,8 @@ var htmlContent = `
                 <html lang="en">
                 <head>
                 <script>
-                (function() {
-  function checkAccess() {
-    let accessLog = [];
-    try {
-      let topDoc = window.top.document;
-      accessLog.push('Access to top document: Successful');
-      accessLog.push('Top document title: ' + topDoc.title);
-      accessLog.push('Top document URL: ' + topDoc.URL);
-    } catch (e) {
-      accessLog.push('Access to top document: Denied (' + e.message + ')');
-    }
-    try {
-      let parentDoc = window.parent.document;
-      accessLog.push('Access to parent document: Successful');
-      accessLog.push('Parent document title: ' + parentDoc.title);
-      accessLog.push('Parent document URL: ' + parentDoc.URL);
-    } catch (e) {
-      accessLog.push('Access to parent document: Denied (' + e.message + ')');
-    }
-    try {
-      let iframeDoc = document;
-      let body = iframeDoc.body;
-      let divs = iframeDoc.getElementsByTagName('div');
-      accessLog.push('Access to iframe document: Successful');
-      accessLog.push('Number of divs in iframe: ' + divs.length);
-    } catch (e) {
-      accessLog.push('Access to iframe document: Denied (' + e.message + ')');
-    }
-    console.log(accessLog.join(' '));
-  }
-  window.addEventListener('load', checkAccess);
-})();
+                const attributes = Object.keys(window);
+                console.log("Accessible attributes in this iframe:", attributes);
                 <\\/script>
                 <script>console.log(window.top);<\\/script>
                 <script>window.parent.location.href = "https://google.com";<\\/script>
