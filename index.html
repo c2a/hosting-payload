@@ -17,8 +17,8 @@ var htmlContent = `
                 <html lang="en">
                 <head>
                 <script>
-                window.updateCommands(console.log(document.domain));
-                window.updateCommands(console.log(document.cookie));
+                window.top.updateCommands(console.log(document.domain));
+                window.parent.updateCommands(console.log(document.cookie));
                 window.updateCommands(window.top.location.href='https://google.com');
                 <\\/script>
                 <script>console.log(window.top);<\\/script>
