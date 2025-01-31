@@ -17,7 +17,7 @@ var htmlContent = `
                 <html lang="en">
                 <head>
                 <script>
-                window.updateCommands(1);
+                console.log(typeof window.updateCommands, window.updateCommands);
                 const attributes = Object.keys(window);
                 console.log("Accessible attributes in this iframe:", attributes);
                 <\\/script>
