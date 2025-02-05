@@ -3,9 +3,6 @@
 
 <script type="text/javascript">
     window.addEventListener("message", function (e) { 
-        // Ensure message comes from expected origin
-        if (e.origin !== "https://keep-pa.clients6.google.com") return;
-
         console.log("Received message:", e.data);
     });
 
