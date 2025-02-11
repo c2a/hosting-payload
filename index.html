@@ -2,6 +2,20 @@
 <head>
     <script>
         console.log(window.opener);
+        function checkWindowAccess() {
+    let result = {};
+    for (let prop of Object.getOwnPropertyNames(window)) {
+        try {
+            result[prop] = typeof window[prop] !== "undefined";
+        } catch (e) {
+            result[prop] = false; // Access denied (sandboxed or cross-origin)
+        }
+    }
+    console.table(result);
+}
+
+checkWindowAccess();
+
     </script>
 </head>
     <body>
