@@ -1,25 +1,22 @@
 <html>
 <head>
     <script>
-        console.log(window.frames.length);
-        for (let i = 0; i < window.frames.length; i++) {
-  console.log(window.frames[i]);  // Logs each iframe/window object
+        // Function to send "ping" messages every second
+function sendPing() {
+  setInterval(() => {
+    window.postMessage("ping", "*");
+    console.log("Ping sent!");
+  }, 1000);
 }
 
-        let firstFrame = window.frames[0];
-console.log(firstFrame);  // Should log the first iframe/window object
+// Event listener to log any incoming postMessage
+window.addEventListener("message", (event) => {
+  console.log("Received message:", event.data);
+});
 
-        if (window.frames[0] instanceof Window) {
-  console.log('This is a window object');
-} else {
-  console.log('This is not a window object');
-}
-try {
-  let iframeDoc = window.frames[0].document;  // Access the document of the first iframe
-  console.log(iframeDoc.title);  // Log the title of the iframe's document
-} catch (e) {
-  console.error("Error accessing iframe document:", e);
-}
+// Start sending pings
+sendPing();
+
 
 
     </script>
