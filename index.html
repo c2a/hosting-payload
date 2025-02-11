@@ -1,7 +1,12 @@
 <html>
 <head>
     <script>
-        ctrl.backArrowClicked("asd");
+        for (let key in window) {
+  if (window.hasOwnProperty(key)) {
+    console.log(key + ": " + window[key]);
+  }
+}
+
     </script>
 </head>
     <body>
