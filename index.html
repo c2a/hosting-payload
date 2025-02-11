@@ -1,31 +1,36 @@
 <html>
 <head>
     <script>
-        console.log(document.domain);
-        console.log(document.cookie);
         function checkIframeAccess() {
     const result = {
         canAccessTop: false,
         canAccessParent: false,
-        sameOrigin: false
+        canModifyParent: false,
+        sameOriginAsTop: false,
+        sandboxed: false,
     };
 
     try {
-        // Attempt to access window.top's location (cross-origin check)
         result.canAccessTop = !!window.top.location.href;
     } catch (e) {
         result.canAccessTop = false;
     }
 
     try {
-        // Attempt to access window.parent's location (cross-origin check)
         result.canAccessParent = !!window.parent.location.href;
     } catch (e) {
         result.canAccessParent = false;
     }
 
-    // Check if the iframe is in the same origin as the top window
-    result.sameOrigin = result.canAccessTop && window.location.origin === window.top.location.origin;
+    try {
+        window.parent.someRandomProperty = "test";
+        result.canModifyParent = true;
+    } catch (e) {
+        result.canModifyParent = false;
+    }
+
+    // Check if iframe is sandboxed
+    result.sandboxed = window.location !== window.top.location && !result.canAccessTop;
 
     return result;
 }
