@@ -1,42 +1,7 @@
 <html>
 <head>
     <script>
-        function checkIframeAccess() {
-    const result = {
-        canAccessTop: false,
-        canAccessParent: false,
-        canModifyParent: false,
-        sameOriginAsTop: false,
-        sandboxed: false,
-    };
-
-    try {
-        result.canAccessTop = !!window.top.location.href;
-    } catch (e) {
-        result.canAccessTop = false;
-    }
-
-    try {
-        result.canAccessParent = !!window.parent.location.href;
-    } catch (e) {
-        result.canAccessParent = false;
-    }
-
-    try {
-        window.parent.someRandomProperty = "test";
-        result.canModifyParent = true;
-    } catch (e) {
-        result.canModifyParent = false;
-    }
-
-    // Check if iframe is sandboxed
-    result.sandboxed = window.location !== window.top.location && !result.canAccessTop;
-
-    return result;
-}
-
-console.log(checkIframeAccess());
-
+        console.log(window.opener);
     </script>
 </head>
     <body>
