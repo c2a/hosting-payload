@@ -1,6 +1,38 @@
 <html>
 <head>
-    <script>addEventListener("message",function(e){console.log(e.data)});</script>
+    <script>
+        console.log(document.domain);
+        console.log(document.cookie);
+        function checkIframeAccess() {
+    const result = {
+        canAccessTop: false,
+        canAccessParent: false,
+        sameOrigin: false
+    };
+
+    try {
+        // Attempt to access window.top's location (cross-origin check)
+        result.canAccessTop = !!window.top.location.href;
+    } catch (e) {
+        result.canAccessTop = false;
+    }
+
+    try {
+        // Attempt to access window.parent's location (cross-origin check)
+        result.canAccessParent = !!window.parent.location.href;
+    } catch (e) {
+        result.canAccessParent = false;
+    }
+
+    // Check if the iframe is in the same origin as the top window
+    result.sameOrigin = result.canAccessTop && window.location.origin === window.top.location.origin;
+
+    return result;
+}
+
+console.log(checkIframeAccess());
+
+    </script>
 </head>
     <body>
         
