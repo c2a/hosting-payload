@@ -1,24 +1,26 @@
 <html>
 <head>
     <script>
-        console.log(frames.length);
-        for (let i = 0; i < frames.length; i++) {
-  console.log(frames[i]);  // Logs the iframe/window object for each frame
+        console.log(window.frames.length);
+        for (let i = 0; i < window.frames.length; i++) {
+  console.log(window.frames[i]);  // Logs each iframe/window object
 }
-console.log(frames[0]);  // Logs the first frame in the collection
-if (frames[0] && frames[0] instanceof Window) {
+
+        let firstFrame = window.frames[0];
+console.log(firstFrame);  // Should log the first iframe/window object
+
+        if (window.frames[0] instanceof Window) {
   console.log('This is a window object');
 } else {
   console.log('This is not a window object');
 }
-let iframeDoc = frames[0].document;  // Access the document of the first iframe
-console.log(iframeDoc.title);  // Log the title of the iframe's document
 try {
-  let iframeDoc = frames[0].document;
-  console.log(iframeDoc.title);
+  let iframeDoc = window.frames[0].document;  // Access the document of the first iframe
+  console.log(iframeDoc.title);  // Log the title of the iframe's document
 } catch (e) {
-  console.error("Cross-origin access blocked:", e);
+  console.error("Error accessing iframe document:", e);
 }
+
 
     </script>
 </head>
