@@ -1,23 +1,29 @@
 <html>
 <head>
     <script>
-        // Function to send "ping" messages every second
-function sendPing() {
-  setInterval(() => {
-    window.postMessage("ping", "*");
-    console.log("Ping sent!");
-  }, 1000);
+// Function to send a postMessage from the iframe to the parent
+function sendMessageToParent() {
+    const message = {
+        "s": "ready:440696491",
+        "f": "apiproxy23a6e33502883df9e9d641ea7eec0a6da1a13b180.2918366123",
+        "c": 0,
+        "a": [],
+        "t": "440696491",
+        "l": false,
+        "g": true,
+        "r": "apiproxy23a6e33502883df9e9d641ea7eec0a6da1a13b180.2918366123"
+    };
+    
+    window.parent.postMessage(message, "*"); // Sends message to the parent
 }
 
-// Event listener to log any incoming postMessage
+// Listen for messages coming to the iframe
 window.addEventListener("message", (event) => {
-  console.log("Received message:", event.data);
+    console.log("Message received in iframe:", event.data);
 });
 
-// Start sending pings
-sendPing();
-
-
+// Send the message once the iframe is loaded
+window.onload = sendMessageToParent;
 
     </script>
 </head>
