@@ -17,7 +17,15 @@
     });
 });
 
-observer.observe(document.body, { attributes: true, subtree: true, attributeFilter: ["style"] });
+// Wait for the body to be available before observing
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => {
+        observer.observe(document.body, { attributes: true, subtree: true, attributeFilter: ["style"] });
+    });
+} else {
+    observer.observe(document.body, { attributes: true, subtree: true, attributeFilter: ["style"] });
+}
+
 
     </script>
 </head>
