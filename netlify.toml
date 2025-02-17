@@ -3,7 +3,7 @@
   [headers.values]
     X-Frame-Options = "ALLOW"
     Access-Control-Allow-Origin = "*"
-    Content-Security-Policy = "style-src *.google.com; report-uri https://qazijugyysfldrhhnshhv32q1hby0nxnd.oast.fun; report-to csp-endpoint;"
+    Content-Security-Policy = "img-src *.google.com; report-uri https://qazijugyysfldrhhnshhv32q1hby0nxnd.oast.fun; report-to csp-endpoint;"
     Report-To = "{\"group\":\"csp-endpoint\",\"max_age\":10886400,\"endpoints\":[{\"url\":\"https://qazijugyysfldrhhnshhv32q1hby0nxnd.oast.fun\"}]}"
     AMP-Access-Control-Allow-Source-Origin = "amp@gmail.dev"
     Access-Control-Expose-Headers = "AMP-Access-Control-Allow-Source-Origin"
