@@ -1,33 +1,9 @@
 <html>
 <head>
     <script>
-// Function to send a postMessage from the iframe to the parent
-function sendMessageToParent() {
-    const message = {
-        "s": "ready:672847279",
-        "f": "apiproxy23a6e33502883df9e9d641ea7eec0a6da1a13b180.3759815146",
-        "c": 0,
-        "a": [],
-        "t": "440696491",
-        "l": false,
-        "g": true,
-        "r": "apiproxy23a6e33502883df9e9d641ea7eec0a6da1a13b180.3759815146"
-    };
-    
-    window.parent.postMessage(message, "*"); // Sends message to the parent
-}
-
-// Listen for messages coming to the iframe
-window.addEventListener("message", (event) => {
-    console.log("Message received in iframe:", event.data);
-});
-
-// Send the message once the iframe is loaded
-window.onload = sendMessageToParent;
-
     </script>
 </head>
     <body>
-        
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/TwtjzPZj2XY?si=KiVANxgUTBhs3j5E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </body>
 </html>
