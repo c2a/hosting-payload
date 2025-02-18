@@ -1,7 +1,7 @@
 <html>
 <head>
     <script>
-        window.location = "data:text/html,<script>console.log(document.domain);<\/script>";
+        window.location = "data:text/html,%3Cscript%3EsetTimeout(()%20%3D%3E%20%7B%0A%20%20%20%20history.replaceState(null%2C%20null%2C%20%22data%3Atext%2Fhtml%2C%3Ch1%3ENew%20Fresh%20Page%3C%2Fh1%3E%22)%3B%0A%0A%20%20%20%20%2F%2F%20Load%20the%20data%20URI%2C%20replacing%20exampleA.com%20entirely%0A%20%20%20%20window.location.replace(%22data%3Atext%2Fhtml%2C%3Ch1%3ENew%20Fresh%20Page%3C%2Fh1%3E%22)%3B%0A%7D%2C%20100)%3B%0A%3C%2Fscript%3E";
     </script>
 </head>
     <body>
