@@ -6,7 +6,7 @@
             console.log("Custom Alert:", msg);
             document.body.innerHTML += `<p>Alert Triggered: ${msg}</p>`;
         };
-        alert("Hello from external iframe!");
+        alert(document.domain);
     </script>
 </head>
 <body>
