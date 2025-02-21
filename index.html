@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript Execution</title>
+    <script>
+        window.alert = function(msg) {
+            console.log("Custom Alert:", msg);
+            document.body.innerHTML += `<p>Alert Triggered: ${msg}</p>`;
+        };
+        alert("Hello from external iframe!");
+    </script>
 </head>
 <body>
-    <img src="https://drive.google.com/thumbnail?authuser=0&id=1K7FTJxeGfmi-W3tB0wVzq6_eblHKQjCmjDDWWGTOQ0c&sz=w1469-h565-p-k-nu">
+    <h3>Custom Alert Iframe</h3>
 </body>
 </html>
