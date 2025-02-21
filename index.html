@@ -1,9 +1,38 @@
-<html>
+<!DOCTYPE html>
+<html lang="id">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Execution</title>
     <script>
-        alert(1);
+        function openNewTab() {
+            let newWindow = window.open("", "_blank"); // Membuka tab baru
+            newWindow.document.write(`
+                <html>
+                <head>
+                    <title>JavaScript Execution</title>
+                    <script>
+                        function runJS() {
+                            console.log("Hello, World!");
+                            console.log("Domain: " + document.domain);
+
+                            alert("Hello, World!");
+                            alert("Domain: " + document.domain);
+                        }
+                    </script>
+                </head>
+                <body>
+                    <h3>Eksekusi JavaScript di Tab Baru</h3>
+                    <button onclick="runJS()">Jalankan JavaScript</button>
+                </body>
+                </html>
+            `);
+            newWindow.document.close();
+        }
     </script>
 </head>
-    <body>
-    </body>
+<body>
+    <h3>Eksekusi JavaScript di Google Sites</h3>
+    <button onclick="openNewTab()">Buka Tab Baru</button>
+</body>
 </html>
