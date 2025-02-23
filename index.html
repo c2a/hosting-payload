@@ -1,6 +1,11 @@
 <html>
   <head>
     <script>
+// Example Usage
+getFinalImageURLUsingIframe('https://work.fife.usercontent.google.com/d/1K7FTJxeGfmi-W3tB0wVzq6_eblHKQjCmjDDWWGTOQ0c=w1469-h565-p-k-nu')
+    .then(finalURL => console.log("Final Image URL:", finalURL))
+    .catch(error => console.error(error));
+
       function getFinalImageURL(imageURL) {
     return new Promise((resolve, reject) => {
         let img = new Image();
