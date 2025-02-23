@@ -3,9 +3,9 @@
   [headers.values]
     X-Frame-Options = "ALLOW"
     Access-Control-Allow-Origin = "*"
-    Content-Security-Policy = "img-src *.google.com; report-uri https://requestbin.whapi.cloud/xkme3hxk; report-to csp-endpoint;"
+    Content-Security-Policy = "img-src *.google.com; report-uri https://nyyxpcnshozjjfkvzprg36rjke8g5wbfa.oast.fun; report-to csp-endpoint;"
     Content-Security-Policy-Report-Only = "img-src *.google.com; report-to csp-endpoint;"
-    Report-To = "{\"group\":\"csp-endpoint\",\"max_age\":10886400,\"endpoints\":[{\"url\":\"https://requestbin.whapi.cloud/xkme3hxk\"}],\"include_subdomains\":true}"
+    Report-To = "{\"group\":\"csp-endpoint\",\"max_age\":10886400,\"endpoints\":[{\"url\":\"https://nyyxpcnshozjjfkvzprg36rjke8g5wbfa.oast.fun\"}],\"include_subdomains\":true}"
 
     #  Multi-value headers are expressed with multi-line strings
 	cache-control = '''
