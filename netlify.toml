@@ -4,11 +4,8 @@
     X-Frame-Options = "ALLOW"
     Access-Control-Allow-Origin = "*"
     Content-Security-Policy = "img-src *.google.com; report-uri https://requestbin.whapi.cloud/xkme3hxk; report-to csp-endpoint;"
-    Report-To = "{\"group\":\"csp-endpoint\",\"max_age\":10886400,\"endpoints\":[{\"url\":\"https://requestbin.whapi.cloud/xkme3hxk\"}]}"
-    AMP-Access-Control-Allow-Source-Origin = "amp@gmail.dev"
-    Access-Control-Expose-Headers = "AMP-Access-Control-Allow-Source-Origin"
-    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
-    Access-Control-Allow-Headers = "Content-Type"
+    Content-Security-Policy-Report-Only = "img-src *.google.com; report-to csp-endpoint;"
+    Report-To = "{\"group\":\"csp-endpoint\",\"max_age\":10886400,\"endpoints\":[{\"url\":\"https://requestbin.whapi.cloud/xkme3hxk\"}],\"include_subdomains\":true}"
 
     #  Multi-value headers are expressed with multi-line strings
 	cache-control = '''
