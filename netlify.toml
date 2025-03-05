@@ -3,6 +3,9 @@
   [headers.values]
     X-Frame-Options = "ALLOW"
     Access-Control-Allow-Origin = "*"
+    jslink = "javascript:alert(1);"
+    datalink = "data:text/html,asdfgh"
+    urlbiasa = "https://google.com"
     
     #  Multi-value headers are expressed with multi-line strings
 	cache-control = '''
