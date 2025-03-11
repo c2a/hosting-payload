@@ -52,7 +52,7 @@
   force = true
 
   [[redirects]]
-  from = "/6"
-  to = "https://glittering-mooncake-dda111.netlify.app/alert.js"
+  from = "/image"
+  to = "https://lh3.googleusercontent.com/d/1K7FTJxeGfmi-W3tB0wVzq6_eblHKQjCmjDDWWGTOQ0c=w1469-h565-p-k-nu?authuser=0"
   status = 301
   force = true
